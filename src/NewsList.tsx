@@ -17,13 +17,14 @@ const NewsList: React.FC = () => {
 
   if (isLoading)
     return (
-      <div className="w-[100px] h-[20px] rounded-full">
-        <Skeleton className="w-full h-full" />
+      <div className="flex justify-center items-center h-4/5">
+      <div className="w-4/5 h-80 rounded-full flex items-center">
+        <Skeleton className="w-full h-full bg-neutral-100" />
+      </div>
       </div>
     );
    if (error) return "An error has occurred: " + (error as Error).message;
 
-  console.log(data);
 
   return (
     <div className="news-list p-10">

@@ -9,7 +9,7 @@ const TopNav = () => {
   };
 
   return (
-    <nav className="bg-cyan-900 text-white p-2 flex justify-between items-center">
+    <nav className="bg-cyan-900 text-white p-1 flex justify-between items-center">
       <div className="logo">
         <img src={blog} alt="Logo" className="w-14 h-14" />
       </div>

@@ -16,12 +16,12 @@ const App: React.FC = () => {
           <TopNav />
 
           <section className="">
-            <h1 className="text-sm md:text-2xl font-bold text-cyan-700">
+            <h1 className="text-sm md:text-2xl mt-4 font-bold text-cyan-700">
               Welcome to the Tesla News App
             </h1>
 
             <p className="text-sm md:lg text-gray-600 mt-4">
-              All articles about Apple from the last month
+              All articles about Apple from last month
             </p>
           </section>
           <section>
