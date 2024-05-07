@@ -2,7 +2,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
 import { Skeleton } from "./components/ui/skeleton";
-import { useToast } from "@/components/ui/use-toast";
 
 const NewsList: React.FC = () => {
   const { isLoading, error, data } = useQuery("news", async () => {
