@@ -24,17 +24,7 @@ const NewsList: React.FC = () => {
         <Skeleton className="w-full h-full" />
       </div>
     );
-  if (error)
-    return (
-      <>
-        {toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: "There was an error fetching the news.",
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
-        })}
-      </>
-    );
+   if (error) return "An error has occurred: " + (error as Error).message;
 
   console.log(data);
 
