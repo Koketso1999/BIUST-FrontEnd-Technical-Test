@@ -1,6 +1,8 @@
 import React from "react";
 import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
+import { Skeleton } from "./components/ui/skeleton";
+import { Alert, AlertDescription, AlertTitle } from "./components/ui/alert";
 
 const NewsList: React.FC = () => {
   const { isLoading, error, data } = useQuery("news", async () => {
@@ -14,18 +16,37 @@ const NewsList: React.FC = () => {
     return response.json();
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {(error as Error).message}</div>;
+  if (isLoading)
+    return (
+      <div className="w-[100px] h-[20px] rounded-full">
+        <Skeleton className="w-full h-full" />
+      </div>
+    );
+  if (error)
+    return (
+      <Alert>
+        <Terminal className="h-4 w-4" />
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>Error: {(error as Error).message}</AlertDescription>
+      </Alert>
+    );
+
+  console.log(data);
 
   return (
-    <div className="news-list">
+    //
+    <div className="news-list p-10">
       {data.articles.map((article: any) => (
         <NewsCard
           key={article.url}
           title={article.title}
+          name={article.source.name}
           description={article.description}
+          content={article.content}
           url={article.url}
           imageUrl={article.urlToImage}
+          author={article.author}
+          publishedDate={article.publishedAt}
         />
       ))}
     </div>
