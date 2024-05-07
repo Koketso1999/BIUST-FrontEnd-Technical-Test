@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
 import { Skeleton } from "./components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "./components/ui/alert";
+import { Terminal } from "lucide-react";
 
 const NewsList: React.FC = () => {
   const { isLoading, error, data } = useQuery("news", async () => {
@@ -24,7 +25,7 @@ const NewsList: React.FC = () => {
     );
   if (error)
     return (
-      <Alert>
+      <Alert variant="destructive">
         <Terminal className="h-4 w-4" />
         <AlertTitle>Heads up!</AlertTitle>
         <AlertDescription>Error: {(error as Error).message}</AlertDescription>
