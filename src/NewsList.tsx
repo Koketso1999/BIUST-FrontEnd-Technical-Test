@@ -2,11 +2,9 @@ import React from "react";
 import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
 import { Skeleton } from "./components/ui/skeleton";
-import { ToastAction } from "@/components/ui/toast";
 import { useToast } from "@/components/ui/use-toast";
 
 const NewsList: React.FC = () => {
-  const { toast } = useToast();
   const { isLoading, error, data } = useQuery("news", async () => {
     const response = await fetch(
       "https://newsapi.org/v2/everything?q=apple&from=2024-05-04&to=2024-05-04&sortBy=popularity&apiKey=c10fad271ac04705af6f553aa6031dc8"
